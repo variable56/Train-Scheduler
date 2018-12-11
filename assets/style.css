@@ -1,11 +1,12 @@
 .jumbotron {
     background-image: url(http://www.conditionforlife.com/wp-content/uploads/2016/01/30162-00-tsk_vintage_black_and_white_train_photo_1600px.jpg);
     background-size: cover;
-    height: 500px;
+    height: auto;
 }
 
 table {
     background-color: rgba( 0 0 0 0 .50);
+    /* margin-bottom: 20px; */
 }
 
 body {

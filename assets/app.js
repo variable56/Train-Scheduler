@@ -11,23 +11,17 @@ var config = {
 
   //Make a variable for firebase
 
-  var database = firebase.database();
-  var trainNumber = 1;
-  var trainName = "Starlight Express";
-  var destination = "Seattle";
-  var firstTrain = "13:00";
+  
+  // var trainNumber = 0;
+  var trainName = "";
+  var destination = "";
+  var firstTrain = "";
   var frequency = 30;
-
-  //Create object for firebase db
-  database.ref().set({
-    trainName: trainName,
-    destination: destination,
-    firstTrain: firstTrain,
-    frequency: frequency
-  })
+  var database = firebase.database();
 
   //pushes most recent entry to firebase
 $("#newTrain").on("click", function (event) {
+  // trainNumber++;
   event.preventDefault();
   alert("Train successfully added");
   trainName = $("#trainName").val().trim();
@@ -35,16 +29,30 @@ $("#newTrain").on("click", function (event) {
   firstTrain = $("#firstTrain").val().trim();
   frequency = $("#frequency").val().trim();
 
-  $("#employeeNameValue").val("");
-  $("#employeeRoleValue").val("");
-  $("#startDateValue").val("");
-  $("#monthlyRateValue").val("");
+  $("#trainName").val("");
+  $("#destination").val("");
+  $("#firstTrain").val("");
+  $("#frequency").val("");
 
   database.ref().push({
-      name: name,
-      role: role,
-      date: date,
-      rate: rate,
-      dateAdded: moment().format()
+    // trainNumber: trainNumber,
+    trainName: trainName,
+    destination: destination,
+    firstTrain: firstTrain,
+    frequency: frequency
   })
 })
+
+//gets the new data from firebase and appends it to the table in the DOM
+database.ref().on("child_added", function (snapshot) {
+  var sv = snapshot.val();
+  console.log(sv.trainName);
+    console.log(sv.destination);
+    console.log(sv.firstTrain);
+    console.log(sv.frequency);
+    
+  
+  $("#trainBody").append("<tr><td>" + sv.trainNumber + "</td><td>" + sv.trainName + "</td><td>" + sv.destination + "</td><td>" + sv.firstTrain + "</td><td>" + sv.frequency + "</td><td></td><td></td></tr>");
+})
+
+
