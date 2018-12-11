@@ -50,15 +50,15 @@
             <br>
             <div class="container input-group-vertical mb-3 lead">
                 <p class="lead">Add a train to the scheduler using the inputs below.</p>
-                <input type="text" class="form-control" placeholder="Train Name" aria-label="Train Name" aria-describedby="basic-addon1">
+                <input id="trainName" type="text" class="form-control" placeholder="Train Name" aria-label="Train Name" aria-describedby="basic-addon1">
                 <br>
-                <input type="text" class="form-control" placeholder="Destination" aria-label="Destination" aria-describedby="basic-addon1">
+                <input id="destination" type="text" class="form-control" placeholder="Destination" aria-label="Destination" aria-describedby="basic-addon1">
                 <br>
-                <input type="time" min="00:00" max="24:00" required class="form-control" placeholder="First Train" aria-label="First Train" aria-describedby="basic-addon1">
+                <input id="firstTrain" type="time" min="00:00" max="24:00" required class="form-control" placeholder="First Train" aria-label="First Train" aria-describedby="basic-addon1">
                 <br>
-                <input type="text" class="form-control" placeholder="Frequency" aria-label="Frequency" aria-describedby="basic-addon1">
+                <input id="frequency" type="text" class="form-control" placeholder="Frequency" aria-label="Frequency" aria-describedby="basic-addon1">
                 <br>
-                <button type="button" class="btn btn-warning">Add Train</button>
+                <button type="button" id="newTrain" class="btn btn-block btn-warning">Add Train</button>
             </div>
         </div>
 

@@ -12,10 +12,10 @@ var config = {
   //Make a variable for firebase
 
   var database = firebase.database();
-  var trainNumber = 0;
-  var trainName = 1;
-  var destination = "";
-  var firstTrain = "";
+  var trainNumber = 1;
+  var trainName = "Starlight Express";
+  var destination = "Seattle";
+  var firstTrain = "13:00";
   var frequency = 30;
 
   //Create object for firebase db
@@ -25,3 +25,26 @@ var config = {
     firstTrain: firstTrain,
     frequency: frequency
   })
+
+  //pushes most recent entry to firebase
+$("#newTrain").on("click", function (event) {
+  event.preventDefault();
+  alert("Train successfully added");
+  trainName = $("#trainName").val().trim();
+  destination = $("#destination").val().trim();
+  firstTrain = $("#firstTrain").val().trim();
+  frequency = $("#frequency").val().trim();
+
+  $("#employeeNameValue").val("");
+  $("#employeeRoleValue").val("");
+  $("#startDateValue").val("");
+  $("#monthlyRateValue").val("");
+
+  database.ref().push({
+      name: name,
+      role: role,
+      date: date,
+      rate: rate,
+      dateAdded: moment().format()
+  })
+})
