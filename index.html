@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Train Scheduler</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+
+<body>
+
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">Train Scheduler</h1>
+            <p class="lead text-muted">Something short and leading about the collection below—its contents, the
+                creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+            <!-- <p>
+                    <a href="#" class="btn btn-primary my-2">Main call to action</a>
+                    <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+                  </p> -->
+                  <div class="album bg-light">
+                        <div class="container p-2">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Train Name</th>
+                                        <th scope="col">Destination</th>
+                                        <th scope="col">First Train</th>
+                                        <th scope="col">Frequency</th>
+                                        <th scope="col">Next Train</th>
+                                        <th scope="col">Minutes</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+        </div>
+    </section>
+        <div class="container">
+            <br>
+            <div class="container input-group-vertical mb-3 lead">
+                <p class="lead">Add a train to the scheduler using the inputs below.</p>
+                <input type="text" class="form-control" placeholder="Train Name" aria-label="Train Name" aria-describedby="basic-addon1">
+                <br>
+                <input type="text" class="form-control" placeholder="Destination" aria-label="Destination" aria-describedby="basic-addon1">
+                <br>
+                <input type="time" min="00:00" max="24:00" required class="form-control" placeholder="First Train" aria-label="First Train" aria-describedby="basic-addon1">
+                <br>
+                <input type="text" class="form-control" placeholder="Frequency" aria-label="Frequency" aria-describedby="basic-addon1">
+                <br>
+                <button type="button" class="btn btn-warning">Add Train</button>
+            </div>
+        </div>
+
+
+
+
+        <!-- Firebase -->
+        <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <!-- Moment.js -->
+        <script>  src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js" </script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+        <script src="./assets/app.js"></script>
+</body>
+
+</html>
