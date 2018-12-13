@@ -26,54 +26,56 @@
                     <a href="#" class="btn btn-primary my-2">Main call to action</a>
                     <a href="#" class="btn btn-secondary my-2">Secondary action</a>
                   </p> -->
-                  <div class="album bg-light">
-                        <div class="container p-2">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Train Name</th>
-                                        <th scope="col">Destination</th>
-                                        <th scope="col">First Train</th>
-                                        <th scope="col">Frequency</th>
-                                        <th scope="col">Next Train</th>
-                                        <th scope="col">Minutes</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="trainBody">
-                                    
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+            <div class="album bg-light">
+                <div class="container p-2">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Train Name</th>
+                                <th scope="col">Destination</th>
+                                <th scope="col">First Train</th>
+                                <th scope="col">Frequency</th>
+                                <th scope="col">Next train</th>
+                            </tr>
+                        </thead>
+                        <tbody id="trainBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </section>
     <br><br>
-        <div class="container">
+    <div class="container">
+        <br>
+        <div class="container input-group-vertical mb-3 lead">
+            <p class="lead">Add a train to the scheduler using the inputs below.</p>
+            <input id="trainName" type="text" class="form-control" placeholder="Train Name" aria-label="Train Name"
+                aria-describedby="basic-addon1">
             <br>
-            <div class="container input-group-vertical mb-3 lead">
-                <p class="lead">Add a train to the scheduler using the inputs below.</p>
-                <input id="trainName" type="text" class="form-control" placeholder="Train Name" aria-label="Train Name" aria-describedby="basic-addon1">
-                <br>
-                <input id="destination" type="text" class="form-control" placeholder="Destination" aria-label="Destination" aria-describedby="basic-addon1">
-                <br>
-                <input id="firstTrain" type="time" min="00:00" max="24:00" required class="form-control" placeholder="First Train" aria-label="First Train" aria-describedby="basic-addon1">
-                <br>
-                <input id="frequency" type="text" class="form-control" placeholder="Frequency" aria-label="Frequency" aria-describedby="basic-addon1">
-                <br>
-                <button type="button" id="newTrain" class="btn btn-block btn-warning">Add Train</button>
-            </div>
+            <input id="destination" type="text" class="form-control" placeholder="Destination" aria-label="Destination"
+                aria-describedby="basic-addon1">
+            <br>
+            <input id="firstTrain" type="time" min="00:00" max="24:00" required class="form-control" placeholder="First Train"
+                aria-label="First Train" aria-describedby="basic-addon1">
+            <br>
+            <input id="frequency" type="text" class="form-control" placeholder="Frequency" aria-label="Frequency"
+                aria-describedby="basic-addon1">
+            <br>
+            <button type="button" id="newTrain" class="btn btn-block btn-warning">Add Train</button>
         </div>
-        
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <!-- Moment.js -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-            crossorigin="anonymous"></script>
-        <script src="./assets/app.js"></script>
+    </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- Moment.js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="./assets/app.js"></script>
 </body>
 
 </html>

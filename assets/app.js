@@ -12,7 +12,7 @@ var config = {
   //Make a variable for firebase
 
   
-  // var trainNumber = 0;
+  var trainNumber = Math.floor(Math.random() * 100);
   var trainName = "";
   var destination = "";
   var firstTrain = "";
@@ -21,9 +21,10 @@ var config = {
 
   //pushes most recent entry to firebase
 $("#newTrain").on("click", function (event) {
-  // trainNumber++;
+  trainNumber++;
   event.preventDefault();
   alert("Train successfully added");
+
   trainName = $("#trainName").val().trim();
   destination = $("#destination").val().trim();
   firstTrain = $("#firstTrain").val().trim();
@@ -35,17 +36,20 @@ $("#newTrain").on("click", function (event) {
   $("#frequency").val("");
 
   database.ref().push({
-    // trainNumber: trainNumber,
+    trainNumber: trainNumber,
     trainName: trainName,
     destination: destination,
     firstTrain: firstTrain,
     frequency: frequency
-  })
+  });
 })
-
+$(document).ready(function()  {
 //gets the new data from firebase and appends it to the table in the DOM
 database.ref().on("child_added", function (snapshot) {
   var sv = snapshot.val();
+  if (!sv || !sv.trainName){
+    return;
+  }
   console.log(sv.trainName);
     console.log(sv.destination);
     console.log(sv.firstTrain);
@@ -53,6 +57,6 @@ database.ref().on("child_added", function (snapshot) {
     
   
   $("#trainBody").append("<tr><td>" + sv.trainNumber + "</td><td>" + sv.trainName + "</td><td>" + sv.destination + "</td><td>" + sv.firstTrain + "</td><td>" + sv.frequency + "</td><td></td><td></td></tr>");
-})
+});
 
-
+});
