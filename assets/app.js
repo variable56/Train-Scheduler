@@ -55,7 +55,7 @@ database.ref().on("child_added", function (snapshot) {
 
     var tFrequency = sv.frequency;
 
-    // Time is 3:30 AM
+    // Pulls time from firebase
     var firstTime = sv.firstTrain;
 
     // First Time (pushed back 1 year to make sure it comes before current time)
@@ -64,7 +64,7 @@ database.ref().on("child_added", function (snapshot) {
 
     // Current Time
     var currentTime = moment();
-    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+    console.log("CURRENT TIME: " + moment(currentTime).format("HH:mm"));
 
     // Difference between the times
     var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
@@ -80,10 +80,10 @@ database.ref().on("child_added", function (snapshot) {
 
     // Next Train
     var nextTrain = moment().add(tMinutesTillTrain, "minutes");
-    console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
+    console.log("ARRIVAL TIME: " + moment(nextTrain).format("HH:mm"));
     
   
-  $("#trainBody").append("<tr><td>" + sv.trainName + "</td><td>" + sv.destination + "</td><td>" + sv.firstTrain + "</td><td>" + sv.frequency + "</td><td>" + moment(nextTrain).format("hh:mm") + "</td><td>" + moment(currentTime).format("hh:mm") + "</td><td>" + tMinutesTillTrain + "</td></tr>");
+  $("#trainBody").append("<tr><td>" + sv.trainName + "</td><td>" + sv.destination + "</td><td>" + sv.firstTrain + "</td><td>" + sv.frequency + "</td><td>" + moment(nextTrain).format("HH:mm") + "</td><td>" + moment(currentTime).format("HH:mm") + "</td><td>" + tMinutesTillTrain + "</td></tr>");
 });
 
 
