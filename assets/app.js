@@ -12,7 +12,7 @@ var config = {
   //Make a variable for firebase
 
   
-  var trainNumber = Math.floor(Math.random() * 100);
+  
   var trainName = "";
   var destination = "";
   var firstTrain = "";
@@ -21,9 +21,8 @@ var config = {
 
   //pushes most recent entry to firebase
 $("#newTrain").on("click", function (event) {
-  trainNumber++;
+  
   event.preventDefault();
-  alert("Train successfully added");
 
   trainName = $("#trainName").val().trim();
   destination = $("#destination").val().trim();
@@ -36,7 +35,6 @@ $("#newTrain").on("click", function (event) {
   $("#frequency").val("");
 
   database.ref().push({
-    trainNumber: trainNumber,
     trainName: trainName,
     destination: destination,
     firstTrain: firstTrain,
@@ -54,9 +52,40 @@ database.ref().on("child_added", function (snapshot) {
     console.log(sv.destination);
     console.log(sv.firstTrain);
     console.log(sv.frequency);
+
+    var tFrequency = sv.frequency;
+
+    // Time is 3:30 AM
+    var firstTime = sv.firstTrain;
+
+    // First Time (pushed back 1 year to make sure it comes before current time)
+    var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
+    console.log(firstTimeConverted);
+
+    // Current Time
+    var currentTime = moment();
+    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+
+    // Difference between the times
+    var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+    console.log("DIFFERENCE IN TIME: " + diffTime);
+
+    // Time apart (remainder)
+    var tRemainder = diffTime % tFrequency;
+    console.log(tRemainder);
+
+    // Minute Until Train
+    var tMinutesTillTrain = tFrequency - tRemainder;
+    console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+
+    // Next Train
+    var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+    console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
     
   
-  $("#trainBody").append("<tr><td>" + sv.trainNumber + "</td><td>" + sv.trainName + "</td><td>" + sv.destination + "</td><td>" + sv.firstTrain + "</td><td>" + sv.frequency + "</td><td></td><td></td></tr>");
+  $("#trainBody").append("<tr><td>" + sv.trainName + "</td><td>" + sv.destination + "</td><td>" + sv.firstTrain + "</td><td>" + sv.frequency + "</td><td>" + moment(nextTrain).format("hh:mm") + "</td><td>" + moment(currentTime).format("hh:mm") + "</td><td>" + tMinutesTillTrain + "</td></tr>");
 });
+
+
 
 });
